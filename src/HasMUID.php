@@ -4,17 +4,25 @@ namespace MUID;
 
 trait HasMUID
 {
-    protected static $muid_column_name = 'muid';
-    protected static function bootHasMUID()
+    protected function get_muid_columns(): array
     {
-        parent::boot();
+        return [
+            'muid'
+        ];
+    }
 
-        static::creating(function ($record) {
-            $unique_code = MUIDHelper::generateRandomString();
-            while (static::where(static::$muid_column_name, $unique_code)->exists()) {
-                $unique_code = MUIDHelper::generateRandomString();
-            }
-            $record->{static::$muid_column_name} = $unique_code;
-        });
+    protected function initializeHasMUID()
+    {
+        foreach($this->get_muid_columns() as $column_name){
+            $this->registerModelEvent('creating', function ($record)use($column_name) {
+                $uniqueCode = MUIDHelper::generateRandomString();
+                
+                while ($this->where($column_name, $uniqueCode)->exists()) {
+                    $uniqueCode = MUIDHelper::generateRandomString();
+                }
+                
+                $record->$column_name = $uniqueCode;
+            });
+        }
     }
 }
