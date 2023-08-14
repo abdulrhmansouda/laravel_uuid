@@ -1,0 +1,21 @@
+{
+  "name": "abdulrhmansouda/muid",
+  "description": "This package for make uuid but just for 10 characters",
+  "type": "library",
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Abdul Rahman Souda",
+      "email": "eng.abdul.rahman19992@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "RandomString\\": "src/RandomString/"
+    }
+  }
+}
