@@ -1,5 +1,5 @@
 <?php
-require_once('src/UUIDHelper.php');
-use UUID\UUIDHelper;
+require_once('src/MUIDHelper.php');
+use MUID\MUIDHelper;
 
-echo UUIDHelper::generateRandomString();
+echo MUIDHelper::generateRandomString();

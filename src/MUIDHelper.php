@@ -1,8 +1,8 @@
 <?php
 
-namespace UUID;
+namespace MUID;
 
-class UUIDHelper
+class MUIDHelper
 {
     public static  function generateRandomString($length = 10, $charset = '0123456789abcdefghijklmnopqrstuvwxyz-_')
     {
