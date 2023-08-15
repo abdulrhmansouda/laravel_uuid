@@ -65,7 +65,7 @@ class TableName extends Model
                 // 'charset'   => '0123456789abcdefghijklmnopqrstuvwxyz-_', default chareset
             ],
             [
-                'column_name'   => 'abd',
+                'column_name'   => 'unique_code',
                 'length'    => 5,
                 'charset'   => '0123456789',
             ],
