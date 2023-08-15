@@ -4,7 +4,7 @@ namespace MUID;
 
 class MUIDHelper
 {
-    public static  function generateRandomString($length = 10, $charset = '0123456789abcdefghijklmnopqrstuvwxyz-_')
+    public static  function generateRandomString($length, $charset)
     {
         $randomString = '';
         $charsetLength = strlen($charset);
