@@ -4,8 +4,8 @@
   "type": "library",
   "require": {
     "php": ">=5.3.0",
-    "illuminate/support": "11.x-dev",
-    "illuminate/database": "11.x-dev"
+    "illuminate/database": "*",
+    "illuminate/support": "*"
   },
   "license": "proprietary",
   "authors": [
