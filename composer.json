@@ -3,7 +3,9 @@
   "description": "This package for make uuid but just for 10 characters",
   "type": "library",
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=5.3.0",
+    "illuminate/support": "11.x-dev",
+    "illuminate/database": "11.x-dev"
   },
   "license": "proprietary",
   "authors": [
@@ -16,6 +18,13 @@
   "autoload": {
     "psr-4": {
       "MUID\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MUID\\Providers\\BlueprintMacroServiceProvider"
+      ]
     }
   }
 }
