@@ -2,7 +2,6 @@
 
 namespace MUID\Providers;
 
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
 
