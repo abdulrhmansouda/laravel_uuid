@@ -23,7 +23,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "MUID\\Providers\\BlueprintMacroServiceProvider"
+        "MUID\\Providers"
       ]
     }
   }
