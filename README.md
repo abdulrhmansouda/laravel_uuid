@@ -7,7 +7,7 @@ This package is for generating uuid but with custom length and charset.
 Use the package manager [composer](https://getcomposer.org/) to install muid.
 
 ```bash
-composer require abdulrhmansouda/laravel_uuid
+composer require abdulrhmansouda/muid
 ```
 
 ## Usage
