@@ -10,7 +10,7 @@ trait HasMUID
             [
                 'column_name'   => 'muid',
                 'length'        => 10,
-                'charset'       => '0123456789abcdefghijklmnopqrstuvwxyz-_',
+                'charset'       => '0123456789abcdefghijklmnopqrstuvwxyz',
             ]
         ];
     }
@@ -21,7 +21,7 @@ trait HasMUID
             static::creating(function ($record) use ($column) {
                 $column_name = $column['column_name'];
                 $muid_length = (isset($column['length']) && is_numeric($column['length'])) ? $column['length'] : 10;
-                $muid_charset = (isset($column['charset']) && is_string($column['charset'])) ? $column['charset'] : '0123456789abcdefghijklmnopqrstuvwxyz-_';
+                $muid_charset = (isset($column['charset']) && is_string($column['charset'])) ? $column['charset'] : '0123456789abcdefghijklmnopqrstuvwxyz';
                 do {
                     $unique_code = MUIDHelper::generateRandomString($muid_length, $muid_charset);
                 } while (static::where($column_name, $unique_code)->exists());

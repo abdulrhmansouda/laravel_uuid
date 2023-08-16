@@ -62,7 +62,7 @@ class TableName extends Model
             [
                 'column_name'   => 'id',
                 // 'length'    => 10, default length is 10
-                // 'charset'   => '0123456789abcdefghijklmnopqrstuvwxyz-_', default chareset
+                // 'charset'   => '0123456789abcdefghijklmnopqrstuvwxyz', default chareset
             ],
             [
                 'column_name'   => 'unique_code',
