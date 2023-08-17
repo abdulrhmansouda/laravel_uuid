@@ -20,11 +20,19 @@
       "MUID\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "MUID\\Tests": "tests/"
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [
         "MUID\\Providers\\BlueprintMacroServiceProvider"
       ]
     }
+  },
+  "require-dev": {
+    "orchestra/testbench": "dev-develop"
   }
 }
