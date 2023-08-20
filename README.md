@@ -73,7 +73,44 @@ class TableName extends Model
     }
 }
 ```
+### To add muid column to a table which has records
+after adding configuration to model you have to add in migration.
 
+```php
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('table_name', function (Blueprint $table) {
+            $table->muid('new_column_name')->nullable();
+        });
+
+        TableName::all()->each(function ($model_instance) {
+            $model_instance->generateMUID(['new_column_name']);
+            $model_instance->save();
+        });
+
+        Schema::table('table_name', function (Blueprint $table) {
+            $table->string('new_column_name')
+                ->nullable(false)
+                ->change();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('table_name', function (Blueprint $table) {
+            $table->dropColumn(['new_column_name']);
+        });
+    }
+};
+```
 
 ## Contributing
 
