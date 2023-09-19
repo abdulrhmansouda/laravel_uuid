@@ -1,6 +1,6 @@
 {
   "name": "abdulrhmansouda/muid",
-  "description": "This package for make uuid but just for 10 characters",
+  "description": "This package for unique id with dynamic options characters",
   "type": "library",
   "require": {
     "php": ">=5.3.0",
@@ -28,7 +28,8 @@
   "extra": {
     "laravel": {
       "providers": [
-        "MUID\\Providers\\BlueprintMacroServiceProvider"
+        "MUID\\Providers\\BlueprintMacroServiceProvider",
+        "MUID\\Providers\\StrSupportMacroServiceProvider"
       ]
     }
   },

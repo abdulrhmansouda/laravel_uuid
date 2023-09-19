@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('table_test', function (Blueprint $table) {
             // $table->id();
-            $table->muid();
-            $table->muid('unique_code');
+            $table->muid()->primary();
+            $table->muid('unique_code',5);
             $table->timestamps();
         });
     }

@@ -24,9 +24,8 @@ class BlueprintMacroServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blueprint::macro('muid', function ($name = 'muid') {
-            return $this->string($name)
-            ->unique();
+        Blueprint::macro('muid', function ($column_name = 'muid', $length = 10) {
+            return $this->char($column_name, $length);
         });
     }
 }
