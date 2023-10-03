@@ -8,6 +8,7 @@ use MUID\Providers\BlueprintMacroServiceProvider;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Contracts\Config\Repository;
 use MUID\Models\TableTest;
+use MUID\Providers\ConfigurationServiceProvider;
 
 class CreateTableTest extends TestCase
 {
@@ -15,8 +16,9 @@ class CreateTableTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            BlueprintMacroServiceProvider::class,
             BaseServiceProvider::class,
+            ConfigurationServiceProvider::class,
+            BlueprintMacroServiceProvider::class,
         ];
     }
     /**
@@ -42,7 +44,8 @@ class CreateTableTest extends TestCase
     public function test_my_first_test()
     {
         $instance = TableTest::create();
-        $this->assertEquals(10,strlen($instance->muid));
-        $this->assertEquals(5,strlen($instance->unique_code));
+
+        $this->assertEquals(10, strlen($instance->muid));
+        $this->assertEquals(5, strlen($instance->unique_code));
     }
 }

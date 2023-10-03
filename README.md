@@ -2,12 +2,19 @@
 
 This package is for generating uuid but with custom length and charset.
 
-## Installation
+## Setup
+### Instaltion
 
 Use the package manager [composer](https://getcomposer.org/) to install muid.
 
 ```bash
 composer require abdulrhmansouda/muid
+```
+
+### Configuration
+if you want to change the defalut value you can publish configurations files by run:
+```bash
+php artisan vendor:publish --tag=muid-config
 ```
 
 ## Usage

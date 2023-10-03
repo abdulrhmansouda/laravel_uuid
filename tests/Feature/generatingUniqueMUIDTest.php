@@ -10,6 +10,7 @@ use Orchestra\Testbench\TestCase;
 use Illuminate\Contracts\Config\Repository;
 use MUID\Models\TableTest;
 use MUID\MUIDHelper;
+use MUID\Providers\ConfigurationServiceProvider;
 use MUID\Providers\StrSupportMacroServiceProvider;
 
 class generatingUniqueMUIDTest extends TestCase
@@ -18,9 +19,10 @@ class generatingUniqueMUIDTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
+            BaseServiceProvider::class,
+            ConfigurationServiceProvider::class,
             StrSupportMacroServiceProvider::class,
             BlueprintMacroServiceProvider::class,
-            BaseServiceProvider::class,
         ];
     }
     /**

@@ -30,7 +30,9 @@ class StrSupportMacroServiceProvider extends ServiceProvider
             return MUIDHelper::generateMUIDByModel($model_class_name, $column_name);
         });
 
-        Str::macro('generateMUIDByTable', function ($table_name, $column_name = 'muid', $column_length = 10, $charset = '0123456789abcdefghijklmnopqrstuvwxyz-_') {
+        Str::macro('generateMUIDByTable', function ($table_name, $column_name = 'muid', $column_length = null, $charset = null) {
+            $column_length = (is_null($column_length)) ? config('muid.default.column_length') : $column_length;
+            $charset = (is_null($charset)) ? config('muid.default.charset') : $charset;
             return MUIDHelper::generateMUIDByTable($table_name, $column_name, $column_length, $charset);
         });
     }
