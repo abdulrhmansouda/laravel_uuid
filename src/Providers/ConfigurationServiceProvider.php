@@ -24,7 +24,7 @@ class ConfigurationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/muid.php' => config_path('courier.php'),
-        ]);
+            __DIR__.'/../../config/muid.php' => config_path('muid.php'),
+        ],'muid-config');
     }
 }
