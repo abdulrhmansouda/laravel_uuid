@@ -10,7 +10,7 @@ trait HasMUID
             [
                 'column_name'   => 'muid',
                 'length'        => config('muid.default.column_length'),
-                'charset'       => config('muid.default.charset'),   
+                'charset'       => config('muid.default.charset'),
             ]
         ];
     }
@@ -52,6 +52,20 @@ trait HasMUID
     public function uniqueIds()
     {
         return collect(self::get_muid_columns())->pluck('column_name')->toArray();
+    }
+
+    /**
+     * Get the auto-incrementing key type.
+     *
+     * @return string
+     */
+    public function getKeyType()
+    {
+        if (in_array($this->getKeyName(), $this->uniqueIds())) {
+            return 'string';
+        }
+
+        return $this->keyType;
     }
 
     /**
