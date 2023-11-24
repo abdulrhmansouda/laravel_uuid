@@ -51,22 +51,7 @@ trait HasMUID
      */
     public function uniqueIds()
     {
-        return [$this->getKeyName()];
-    }
-
-
-    /**
-     * Get the auto-incrementing key type.
-     *
-     * @return string
-     */
-    public function getKeyType()
-    {
-        if (in_array($this->getKeyName(), $this->uniqueIds())) {
-            return 'string';
-        }
-
-        return $this->keyType;
+        return collect(self::get_muid_columns())->pluck('column_name')->toArray();
     }
 
     /**

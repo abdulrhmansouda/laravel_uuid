@@ -7,6 +7,7 @@ use MUID\Providers\BaseServiceProvider;
 use MUID\Providers\BlueprintMacroServiceProvider;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Contracts\Config\Repository;
+use MUID\Models\TableDoesNotHaveMUIDAsPrimaryKeyTest;
 use MUID\Models\TableTest;
 use MUID\Providers\ConfigurationServiceProvider;
 
@@ -41,11 +42,19 @@ class CreateTableTest extends TestCase
             ]);
         });
     }
-    public function test_my_first_test()
+    public function test_table_test()
     {
         $instance = TableTest::create();
 
         $this->assertEquals(10, strlen($instance->muid));
+        $this->assertEquals(5, strlen($instance->unique_code));
+    }
+
+    public function test_table_does_not_have_muid_as_primary_key_test()
+    {
+        $instance = TableDoesNotHaveMUIDAsPrimaryKeyTest::create();
+
+        $this->assertIsInt($instance->id);
         $this->assertEquals(5, strlen($instance->unique_code));
     }
 }
